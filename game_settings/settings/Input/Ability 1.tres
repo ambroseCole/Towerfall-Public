@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ggsInputSetting" load_steps=4 format=3 uid="uid://cfm0ncsjxveah"]
+
+[ext_resource type="Script" path="res://game_settings/templates/input.gd" id="1_ldnti"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_toxkk"]
+device = -1
+physical_keycode = 90
+unicode = 122
+
+[sub_resource type="InputEventKey" id="InputEventKey_4ge5r"]
+device = -1
+physical_keycode = 90
+unicode = 122
+
+[resource]
+resource_name = "Ability 1"
+script = ExtResource("1_ldnti")
+action = "ability 1"
+event_index = 0
+type = 1
+default_as_event = SubResource("InputEventKey_4ge5r")
+current_as_event = SubResource("InputEventKey_toxkk")
+current = [1, 90]
+default = [1, 90]
+name = "Ability 1"
+category = "Input"
+value_type = 28
+value_hint = 0
+value_hint_string = ""

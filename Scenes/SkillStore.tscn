@@ -1,0 +1,230 @@
+[gd_scene load_steps=5 format=3 uid="uid://crft3nsp634bb"]
+
+[ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://Resources/themes/pixelart.theme" id="1_c4s8j"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/permanentUpgrade.gd" id="1_cj54c"]
+
+[sub_resource type="GDScript" id="GDScript_3s8r3"]
+script/source = "extends RichTextLabel
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var GameManager = get_node(\"/root/GameManager\")
+	text = \"Current Coins: \" + str(GameManager.coins)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2hiq"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.145833
+anchor_top = 0.183642
+anchor_right = 0.265625
+anchor_bottom = 0.334877
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/font_size = 25
+text = "Health Up"
+script = ExtResource("1_cj54c")
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelText" type="RichTextLabel" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_left = 0.00038147
+offset_top = 18.0001
+offset_right = 30.0004
+offset_bottom = 16.0001
+theme_override_font_sizes/normal_font_size = 20
+text = "Current Level: 0"
+
+[node name="CostText" type="RichTextLabel" parent="Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 149.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Cost to Level Up:
+50 Coins"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.758681
+anchor_top = 0.689815
+anchor_right = 0.878472
+anchor_bottom = 0.841049
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/font_size = 25
+text = "Attack Up"
+script = ExtResource("1_cj54c")
+index = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelText" type="RichTextLabel" parent="Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 18.0
+offset_right = 61.0001
+offset_bottom = 16.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Current Level: 0"
+
+[node name="CostText" type="RichTextLabel" parent="Button2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 149.0
+offset_bottom = 147.0
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/normal_font_size = 20
+text = "Cost to Level Up:
+50 Coins"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.755208
+anchor_top = 0.183642
+anchor_right = 0.875
+anchor_bottom = 0.334877
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/font_size = 25
+text = "Attack Speed Up"
+script = ExtResource("1_cj54c")
+index = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelText" type="RichTextLabel" parent="Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 18.0
+offset_right = 33.0
+offset_bottom = 16.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Current Level: 0"
+
+[node name="CostText" type="RichTextLabel" parent="Button3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 149.0
+offset_bottom = 147.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Cost to Level Up:
+50 Coins"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.146701
+anchor_top = 0.692901
+anchor_right = 0.266493
+anchor_bottom = 0.844136
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/font_size = 25
+text = "Speed Up"
+script = ExtResource("1_cj54c")
+index = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelText" type="RichTextLabel" parent="Button4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_top = 18.0
+offset_right = 45.0
+offset_bottom = 16.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Current Level: 0"
+
+[node name="CostText" type="RichTextLabel" parent="Button4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.5
+anchor_right = 1.0
+offset_left = 0.000457764
+offset_top = 150.0
+offset_right = 0.000457764
+offset_bottom = 148.0
+theme_override_font_sizes/normal_font_size = 20
+text = "Cost to Level Up:
+50 Coins"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.321
+anchor_top = 0.478
+anchor_right = 0.792
+anchor_bottom = 0.61
+offset_left = 36.208
+offset_top = 1.25598
+offset_right = 35.6159
+offset_bottom = 0.719991
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/normal_font_size = 45
+text = "Permanent Upgrades"
+metadata/_edit_use_anchors_ = true
+
+[node name="CoinText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.425063
+anchor_top = 0.0230864
+anchor_right = 0.984375
+anchor_bottom = 0.143086
+offset_left = 0.327991
+offset_top = 0.0399991
+offset_bottom = 0.28
+theme = ExtResource("1_c4s8j")
+theme_override_font_sizes/normal_font_size = 30
+text = "Current Coins: 0"
+script = SubResource("GDScript_3s8r3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="."]
+z_index = -8
+layout_mode = 0
+offset_left = -41.0
+offset_top = -49.0
+offset_right = -0.999996
+offset_bottom = -9.0
+scale = Vector2(31.64, 20)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f2hiq")

@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://cebl80815ieri"]
+
+[ext_resource type="Script" path="res://Scripts/room.gd" id="1_rug7w"]
+[ext_resource type="Script" path="res://PlayerEnter.gd" id="2_bubd8"]
+[ext_resource type="TileSet" uid="uid://2sceq72j5tpf" path="res://tileset.tres" id="3_qsw78"]
+[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://Resources/themes/C&C Red Alert [INET].ttf" id="4_c0p5l"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_rug7w")
+
+[node name="PlayerEnter" type="Area2D" parent="."]
+script = ExtResource("2_bubd8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerEnter"]
+polygon = PackedVector2Array(74, 75, 72, 1214, 1211, 1207, 1210, 71)
+
+[node name="wall2" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="wall2"]
+visible = false
+position = Vector2(-64, 0)
+scale = Vector2(2.09524, 2)
+polygon = PackedVector2Array(0, -32, 0, 32, 672, 32, 672, -32, 32.6011, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall2"]
+polygon = PackedVector2Array(-64, -64, -64, 64, 1344, 64, 1344, -64)
+
+[node name="wall3" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="wall3"]
+visible = false
+position = Vector2(1280, 1344)
+rotation = -1.5708
+scale = Vector2(2.09524, 2)
+polygon = PackedVector2Array(0, -32, 0, 32, 672, 32, 672, -32, 32.6011, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall3"]
+polygon = PackedVector2Array(1216, -64, 1344, -64, 1344, 1344, 1216, 1344)
+
+[node name="wall4" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="wall4"]
+visible = false
+position = Vector2(-64, 1280)
+scale = Vector2(2.09524, 2)
+polygon = PackedVector2Array(0, -32, 0, 32, 672, 32, 672, -32, 32.6011, -32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall4"]
+polygon = PackedVector2Array(-64, 1216, -64, 1344, 1344, 1344, 1344, 1216)
+
+[node name="wall5" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall5"]
+position = Vector2(-0.200005, 0)
+scale = Vector2(0.998047, 1)
+polygon = PackedVector2Array(-64, -64, 64, -64, 64, 1344, -64, 1344)
+
+[node name="Polygon2D2" type="Polygon2D" parent="wall5"]
+visible = false
+position = Vector2(0, 1344)
+rotation = -1.5708
+scale = Vector2(2.09524, 2)
+polygon = PackedVector2Array(0, -32, 0, 32, 672, 32, 672, -32, 32.6011, -32)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(65, 43)
+scale = Vector2(6, 6)
+tile_set = ExtResource("3_qsw78")
+format = 2
+layer_0/tile_data = PackedInt32Array(589833, 917504, 5, 655359, 655360, 5, 589824, 720896, 5, 589825, 786432, 5, 589826, 851968, 5, 589827, 786432, 5, 589828, 851968, 5, 589829, 917504, 5, 589830, 983040, 5, 589831, 786432, 5, 589832, 851968, 5, 9, 917504, 2, 65545, 917504, 3, 131081, 917504, 4, 196617, 917504, 5, 262153, 917504, 4, 327689, 917504, 5, 393225, 917504, 6, 458761, 983040, 6, 524297, 917504, 4, 393215, 655360, 7, 458751, 655360, 2, 524287, 655360, 3, 589823, 655360, 4, 65537, 786432, 3, 131073, 786432, 4, 65538, 851968, 3, 131074, 851968, 4, 65539, 917504, 3, 131075, 917504, 4, 65540, 983040, 3, 131076, 983040, 4, 65541, 786432, 4, 131077, 786432, 5, 65542, 851968, 4, 131078, 851968, 5, 196613, 917504, 4, 262149, 917504, 5, 196614, 983040, 4, 262150, 983040, 5, 196611, 786432, 4, 262147, 786432, 5, 196612, 851968, 4, 262148, 851968, 5, 196609, 786432, 5, 262145, 786432, 4, 196610, 851968, 5, 262146, 851968, 4, 327681, 786432, 5, 393217, 786432, 6, 327682, 851968, 5, 393218, 851968, 6, 327683, 786432, 4, 393219, 786432, 5, 327684, 851968, 4, 393220, 851968, 5, 327685, 917504, 4, 393221, 917504, 5, 327686, 983040, 4, 393222, 983040, 5, 327687, 786432, 5, 393223, 786432, 6, 262151, 786432, 4, 131079, 917504, 5, 196615, 917504, 6, 65543, 917504, 4, 458754, 851968, 3, 458755, 786432, 6, 458753, 786432, 3, 458756, 851968, 6, 458757, 917504, 6, 458758, 983040, 6, 458759, 851968, 6, 1, 786432, 2, 2, 851968, 2, 3, 917504, 2, 4, 983040, 2, 5, 917504, 2, 6, 917504, 2, 7, 786432, 2, 8, 851968, 2, 65544, 983040, 4, 131080, 983040, 5, 196616, 983040, 6, 262152, 851968, 4, 327688, 851968, 5, 393224, 851968, 6, 458760, 917504, 6, 524296, 851968, 4, 524289, 786432, 4, 524290, 851968, 4, 524291, 786432, 4, 524292, 851968, 4, 524293, 917504, 4, 524294, 983040, 4, 524295, 786432, 4, 524288, 720896, 4, 393216, 720896, 5, 458752, 720896, 3, 262144, 720896, 6, 327680, 720896, 5, 196608, 720896, 5, 65536, 720896, 3, 131072, 720896, 4, 0, 720896, 2, -1, 655360, 1, 65535, 655360, 2, 131071, 655360, 3, 196607, 655360, 4, 262143, 655360, 5, 327679, 655360, 6, 10, 983040, 2, 11, 1048576, 2, 65546, 983040, 3, 131082, 983040, 4, 196618, 983040, 5, 262154, 983040, 4, 327690, 983040, 5, 393226, 983040, 6, 458762, 983040, 3, 524298, 983040, 4, 589834, 983040, 5, 655370, 983040, 6, 12, 1114112, 2, 720895, 655360, 6, 786431, 655360, 7, 851967, 655360, 8, 786432, 786432, 8, 786433, 851968, 8, 786434, 917504, 8, 786435, 983040, 8, 786436, 786432, 8, 786437, 851968, 8, 786438, 917504, 8, 786439, 983040, 8, 786440, 786432, 8, 786441, 851968, 8, 786442, 917504, 8, 786443, 1048576, 8, 786444, 1114112, 8, 589836, 1114112, 5, 655372, 1114112, 6, 720908, 1114112, 7, 393228, 1114112, 2, 458764, 1114112, 3, 524300, 1114112, 4, 196620, 1114112, 5, 262156, 1114112, 6, 327692, 1114112, 7, 65548, 1114112, 3, 131084, 1114112, 4, 655360, 720896, 6, 655361, 786432, 6, 655362, 851968, 6, 655363, 786432, 6, 655364, 851968, 6, 655365, 917504, 6, 655366, 983040, 6, 655367, 786432, 6, 655368, 851968, 6, 655369, 917504, 6, 720896, 720896, 7, 720907, 1048576, 7, 720897, 786432, 7, 720898, 851968, 7, 720899, 917504, 7, 720900, 983040, 7, 720901, 851968, 7, 720902, 851968, 7, 720903, 786432, 7, 720904, 851968, 7, 720905, 917504, 7, 720906, 983040, 7, 65547, 1048576, 3, 131083, 1048576, 4, 196619, 1048576, 5, 262155, 1048576, 6, 327691, 1048576, 5, 393227, 1048576, 5, 458763, 1048576, 3, 524299, 1048576, 4, 589835, 1048576, 5, 655371, 1048576, 6, -65536, 720896, 1, -65535, 786432, 1, -65534, 851968, 1, -65533, 917504, 1, -65532, 983040, 1, -65531, 1048576, 1, -65530, 720896, 1, -65529, 786432, 1, -65528, 851968, 1, -65527, 917504, 1, -65526, 983040, 1, -65525, 1048576, 1, -65524, 1114112, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -27.0
+offset_top = 111.0
+offset_right = 1322.0
+offset_bottom = 481.0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_c0p5l")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center]LEVEL 3"
+
+[connection signal="body_entered" from="PlayerEnter" to="PlayerEnter" method="_on_body_entered"]
+[connection signal="body_exited" from="PlayerEnter" to="PlayerEnter" method="_on_body_exited"]

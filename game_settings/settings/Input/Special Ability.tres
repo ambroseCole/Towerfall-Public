@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ggsInputSetting" load_steps=4 format=3 uid="uid://bupud8t2xm5hj"]
+
+[ext_resource type="Script" path="res://game_settings/templates/input.gd" id="1_nu1lj"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ogm5d"]
+device = -1
+physical_keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_ytmma"]
+device = -1
+physical_keycode = 32
+unicode = 32
+
+[resource]
+resource_name = "Special Ability"
+script = ExtResource("1_nu1lj")
+action = "ultimate"
+event_index = 0
+type = 1
+default_as_event = SubResource("InputEventKey_ytmma")
+current_as_event = SubResource("InputEventKey_ogm5d")
+current = [1, 32]
+default = [1, 32]
+name = "Special Ability"
+category = "Input"
+value_type = 28
+value_hint = 0
+value_hint_string = ""

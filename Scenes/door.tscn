@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://hmcexyvxsytu"]
+
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_eu2dx"]
+[ext_resource type="TileSet" uid="uid://c16eokn88i4na" path="res://sample.tres" id="2_1gg36"]
+
+[node name="Door" type="Area2D"]
+scale = Vector2(2.47622, 1.78266)
+script = ExtResource("1_eu2dx")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(10, 9)
+scale = Vector2(1.70664, 1.54927)
+tile_set = ExtResource("2_1gg36")
+format = 2
+layer_0/tile_data = PackedInt32Array(-2, 2031617, 0, -1, 2097153, 0, -65536, 2162689, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

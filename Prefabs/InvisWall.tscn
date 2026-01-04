@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dclv8kihfo4nr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wxvqi"]
+size = Vector2(20.0521, 632.75)
+
+[node name="Area2D" type="Area2D"]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(564, 0)
+scale = Vector2(1.92, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 4
+z_index = 3
+position = Vector2(-129.818, -80.625)
+shape = SubResource("RectangleShape2D_wxvqi")

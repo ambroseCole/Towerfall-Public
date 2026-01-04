@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="ggsInputSetting" load_steps=4 format=3 uid="uid://brcjgxcc74cjp"]
+
+[ext_resource type="Script" path="res://game_settings/templates/input.gd" id="1_8uqd2"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_u3g2c"]
+device = -1
+physical_keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_0xkbm"]
+device = -1
+physical_keycode = 4194305
+
+[resource]
+resource_name = "Pause"
+script = ExtResource("1_8uqd2")
+action = "pause"
+event_index = 0
+type = 1
+default_as_event = SubResource("InputEventKey_0xkbm")
+current_as_event = SubResource("InputEventKey_u3g2c")
+current = [1, 4194305]
+default = [1, 4194305]
+name = "Pause"
+category = "Input"
+value_type = 28
+value_hint = 0
+value_hint_string = ""

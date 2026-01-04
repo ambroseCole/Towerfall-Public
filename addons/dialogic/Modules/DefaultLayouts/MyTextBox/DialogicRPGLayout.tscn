@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=3 uid="uid://ceoks8k3a5t8r"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/DefaultLayouts/RPG_BoxPortrait/DialogicRPGLayout.gd" id="1_q6k8g"]
+[ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://Resources/themes/pixelart.theme" id="2_2j4ox"]
+[ext_resource type="Texture2D" uid="uid://bke2a7c3lgttv" path="res://Resources/themes/pixel-panel.png" id="3_mxr1p"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_name_label.gd" id="4_8jo5s"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Text/node_dialog_text.gd" id="5_gk481"]
+[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://Resources/themes/C&C Red Alert [INET].ttf" id="6_qium5"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Choice/node_choice_button.gd" id="7_21kqa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jpmhj"]
+texture = ExtResource("3_mxr1p")
+texture_margin_left = 15.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[node name="RPG_ExampleNode" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_q6k8g")
+
+[node name="Anchor" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_2j4ox")
+
+[node name="Panel" type="PanelContainer" parent="Anchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -98.0
+offset_top = -66.0
+offset_right = 121.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_2j4ox")
+theme_override_styles/panel = SubResource("StyleBoxTexture_jpmhj")
+
+[node name="HBox" type="HBoxContainer" parent="Anchor/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Anchor/Panel/HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DialogicNode_NameLabel" type="Label" parent="Anchor/Panel/HBox/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Name"
+script = ExtResource("4_8jo5s")
+
+[node name="DialogicNode_DialogText" type="RichTextLabel" parent="Anchor/Panel/HBox/VBoxContainer" node_paths=PackedStringArray("textbox_root")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 6
+bbcode_enabled = true
+text = "Some text"
+scroll_following = true
+script = ExtResource("5_gk481")
+textbox_root = NodePath("../../..")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Anchor/Panel/HBox/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="DialogicNode_ChoiceButton" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_qium5")
+theme_override_font_sizes/font_size = 23
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")
+
+[node name="DialogicNode_ChoiceButton2" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_qium5")
+theme_override_font_sizes/font_size = 23
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")
+
+[node name="DialogicNode_ChoiceButton3" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_qium5")
+theme_override_font_sizes/font_size = 23
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")
+
+[node name="DialogicNode_ChoiceButton4" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_qium5")
+theme_override_font_sizes/font_size = 23
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")
+
+[node name="DialogicNode_ChoiceButton5" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")
+
+[node name="DialogicNode_ChoiceButton6" type="Button" parent="Anchor/Panel/HBox/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Text"
+flat = true
+script = ExtResource("7_21kqa")

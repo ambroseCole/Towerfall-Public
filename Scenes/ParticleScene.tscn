@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://tafvvjk6i4eu"]
+
+[ext_resource type="PackedScene" uid="uid://d1di1gqw17i0f" path="res://Particle.tscn" id="1_48q4b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgmn0"]
+radius = 262.002
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Particles2D" parent="." instance=ExtResource("1_48q4b")]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_mgmn0")

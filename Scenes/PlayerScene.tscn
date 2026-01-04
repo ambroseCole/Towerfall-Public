@@ -1,0 +1,1472 @@
+[gd_scene load_steps=60 format=3 uid="uid://dpl3q25ngaenr"]
+
+[ext_resource type="Script" path="res://Scripts/Characters & Enemeies/characterControl.gd" id="1_jkapv"]
+[ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://Resources/themes/pixelart.theme" id="1_knir8"]
+[ext_resource type="Texture2D" uid="uid://cm3jhfr6qit26" path="res://Resources/image.png" id="2_u30gi"]
+[ext_resource type="Texture2D" uid="uid://dqqp0ji38lc5s" path="res://Resources/Anims/Character Slash.png" id="3_ne1j5"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/upgradeButton.gd" id="3_rqk06"]
+[ext_resource type="Script" path="res://Scripts/swordScript.gd" id="4_lf3ti"]
+[ext_resource type="Script" path="res://Scripts/getStats.gd" id="4_uo53n"]
+[ext_resource type="Script" path="res://Scripts/HealthBar.gd" id="5_m6sjl"]
+[ext_resource type="AudioStream" uid="uid://gxdk8a2ho22m" path="res://Assets/Leohpaz/RPG_Essentials_Free/12_Player_Movement_SFX/12_Step_wood_03.wav" id="5_nt3fc"]
+[ext_resource type="Texture2D" uid="uid://c8rswgm7mwgln" path="res://icons/war special (1).png" id="7_hs4nh"]
+[ext_resource type="Script" path="res://Scripts/coolDisp.gd" id="9_asxkn"]
+[ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://game_settings/components/option_list/option_list.tscn" id="11_gv4b0"]
+[ext_resource type="PackedScene" uid="uid://c37dyl5tpi05a" path="res://Scenes/TutorialRoom.tscn" id="11_o42t2"]
+[ext_resource type="Resource" uid="uid://bpt2fv1ih7800" path="res://game_settings/settings/Video/Resolution.tres" id="12_ljwgw"]
+[ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://game_settings/components/checkbox/checkbox.tscn" id="13_p5p0e"]
+[ext_resource type="Resource" uid="uid://d3llctnfjcgxp" path="res://game_settings/settings/Video/Fullscreen.tres" id="14_gvkjq"]
+[ext_resource type="PackedScene" uid="uid://ds06mwhee8ygm" path="res://game_settings/components/slider/slider.tscn" id="15_h0tfa"]
+[ext_resource type="Resource" uid="uid://b32teqsgukyjv" path="res://game_settings/settings/Audio/Volume.tres" id="16_y8i54"]
+[ext_resource type="Resource" uid="uid://mqlkedmdvbef" path="res://game_settings/settings/Audio/Audio Muted.tres" id="17_wdiak"]
+[ext_resource type="PackedScene" uid="uid://b1btmq8y3gexs" path="res://game_settings/components/_misc_components/input_confirm_window/input_confirm_window.tscn" id="18_wsfwm"]
+[ext_resource type="PackedScene" uid="uid://dm1av7skxvp1j" path="res://game_settings/components/input_btn/input_btn.tscn" id="19_uop4l"]
+[ext_resource type="Resource" uid="uid://c8qlmit8dfv4e" path="res://game_settings/settings/Input/Attack.tres" id="20_pnbt6"]
+[ext_resource type="Resource" uid="uid://cfm0ncsjxveah" path="res://game_settings/settings/Input/Ability 1.tres" id="21_46qjb"]
+[ext_resource type="Resource" uid="uid://c64e0ex8w8cam" path="res://game_settings/settings/Input/Ability 2.tres" id="22_xc4o5"]
+[ext_resource type="Resource" uid="uid://bupud8t2xm5hj" path="res://game_settings/settings/Input/Special Ability.tres" id="23_6s1sv"]
+[ext_resource type="Resource" uid="uid://brcjgxcc74cjp" path="res://game_settings/settings/Input/Pause.tres" id="24_r7my2"]
+[ext_resource type="Texture2D" uid="uid://bke2a7c3lgttv" path="res://Resources/themes/pixel-panel.png" id="26_wwiou"]
+[ext_resource type="Script" path="res://Scenes/startResume.gd" id="27_2fudv"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/optionsButton.gd" id="27_uprcn"]
+[ext_resource type="Script" path="res://Resources/themes/exitButton.gd" id="28_v613g"]
+[ext_resource type="PackedScene" uid="uid://by2awfcmy6r5b" path="res://youdied.tscn" id="29_72rsd"]
+[ext_resource type="PackedScene" uid="uid://wlrb6xu22qf0" path="res://congrats.tscn" id="31_026yw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7j41"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgwtp"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8hi7"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75isk"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0rdt"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8uly"]
+atlas = ExtResource("2_u30gi")
+region = Rect2(256, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sclhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7j41")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgwtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8hi7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75isk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0rdt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8uly")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwthk"]
+size = Vector2(148.312, 197)
+
+[sub_resource type="Animation" id="Animation_72xtr"]
+resource_name = "Crescent"
+length = 0.22
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.16, 0.19),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_ulcmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_l3ucg"]
+resource_name = "Slash"
+length = 0.22
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5durh"]
+_data = {
+"Crescent": SubResource("Animation_72xtr"),
+"RESET": SubResource("Animation_ulcmt"),
+"Slash": SubResource("Animation_l3ucg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xvb7"]
+size = Vector2(66.052, 64.4442)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhhm8"]
+bg_color = Color(0.0196078, 0.0196078, 0.0196078, 0.67451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkarh"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 1)
+
+[sub_resource type="Theme" id="Theme_11cx0"]
+Button/styles/normal = SubResource("StyleBoxFlat_xkarh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0s4b"]
+bg_color = Color(0, 0, 0, 0.2)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m83o6"]
+bg_color = Color(0.807843, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="GDScript" id="GDScript_tihm4"]
+script/source = "extends ProgressBar
+
+@export var sizeRatio = 0.0
+@export var defaultV = 0
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	value = defaultV
+
+func update(newHealth):
+	value = newHealth
+	
+func updateMax(newMax, text = null):
+	size.x = sizeRatio*newMax
+	max_value = newMax
+	if text:
+		%LevelText.text = \"[center]LV \" + str(text)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pj2q2"]
+bg_color = Color(0.0509804, 0.611765, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgh2i"]
+bg_color = Color(0.0784314, 0.478431, 0, 0.623529)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6euc4"]
+bg_color = Color(0.545098, 0, 0.12549, 0.627451)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6a355"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gy6x8"]
+texture = ExtResource("26_wwiou")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+modulate_color = Color(1, 1, 1, 0.972549)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_wyoit"]
+color = Color(0.831373, 0.831373, 0.831373, 1)
+
+[sub_resource type="GDScript" id="GDScript_qcu5c"]
+script/source = "extends Button
+
+@onready var menu = %Menu.get_parent()
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func _pressed():
+	get_parent().visible = false
+	menu.visible = true
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+"
+
+[sub_resource type="GDScript" id="GDScript_uhn3f"]
+script/source = "extends Button
+
+@export var resumeStart = \"start\"
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+func _pressed():
+	match resumeStart:
+		\"resume\":
+			get_tree().paused = false
+			get_parent().get_parent().visible = false
+		\"start\":
+			get_tree().paused = false
+			get_tree().change_scene_to_file(\"res://Scenes/PlayerScene.tscn\")
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+process_priority = -1
+z_index = 2
+position = Vector2(107, 758)
+scale = Vector2(1.02063, 0.927186)
+script = ExtResource("1_jkapv")
+speed = 600.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(-1, 35)
+scale = Vector2(3.58203, 3.6875)
+sprite_frames = SubResource("SpriteFrames_sclhl")
+animation = &"run"
+autoplay = "default"
+speed_scale = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-7.15625, 1)
+shape = SubResource("RectangleShape2D_uwthk")
+one_way_collision_margin = 0.0
+
+[node name="slot1" type="Timer" parent="CharacterBody2D"]
+
+[node name="slot2" type="Timer" parent="CharacterBody2D"]
+
+[node name="SlashAnim" type="AnimationPlayer" parent="CharacterBody2D"]
+libraries = {
+"": SubResource("AnimationLibrary_5durh")
+}
+
+[node name="Marker2D" type="Marker2D" parent="CharacterBody2D"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Marker2D"]
+z_index = 5
+texture_filter = 1
+position = Vector2(-166, -23)
+scale = Vector2(3.01557, 3.22918)
+texture = ExtResource("3_ne1j5")
+hframes = 9
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D/Marker2D"]
+position = Vector2(-92, -6)
+scale = Vector2(2.87479, 2.10421)
+disable_mode = 2
+script = ExtResource("4_lf3ti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Marker2D/Area2D"]
+position = Vector2(-16.0533, 2.33887)
+scale = Vector2(0.5364, 0.839374)
+shape = SubResource("RectangleShape2D_7xvb7")
+disabled = true
+
+[node name="parry2D" type="Area2D" parent="CharacterBody2D/Marker2D"]
+position = Vector2(-92, -6)
+scale = Vector2(2.87479, 2.10421)
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Marker2D/parry2D"]
+position = Vector2(-27.1324, 2.37618)
+scale = Vector2(0.936397, 1.20526)
+shape = SubResource("RectangleShape2D_7xvb7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D/Marker2D"]
+process_mode = 3
+position = Vector2(-233, 6)
+emitting = false
+amount = 60
+lifetime = 0.16
+emission_shape = 1
+emission_sphere_radius = 105.99
+direction = Vector2(-1, 2.08165e-12)
+spread = 95.36
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 120.0
+initial_velocity_max = 340.3
+scale_amount_min = 5.0
+scale_amount_max = 8.0
+
+[node name="Melee" type="Timer" parent="CharacterBody2D"]
+
+[node name="slot3" type="Timer" parent="CharacterBody2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterBody2D"]
+process_mode = 3
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CharacterBody2D"]
+stream = ExtResource("5_nt3fc")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(569, 323)
+offset = Vector2(9, 2.08165e-12)
+zoom = Vector2(0.45, 0.45)
+
+[node name="Control" type="Control" parent="Camera2D"]
+z_index = 15
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UpgradeButtonLayer" type="CanvasLayer" parent="Camera2D/Control"]
+unique_name_in_owner = true
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="Panel" type="Panel" parent="Camera2D/Control/UpgradeButtonLayer"]
+z_index = -1
+offset_left = -150.0
+offset_top = -110.0
+offset_right = -110.0
+offset_bottom = -70.0
+scale = Vector2(39.9641, 21.2163)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhhm8")
+
+[node name="UpgradeOne2" type="Button" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.441
+anchor_right = 0.86525
+anchor_bottom = 0.671309
+offset_left = 82.576
+offset_top = -159.768
+offset_right = 90.2319
+offset_bottom = -160.008
+theme = ExtResource("1_knir8")
+script = ExtResource("3_rqk06")
+buttonIndex = 0
+
+[node name="title" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738268
+anchor_right = 0.602801
+anchor_bottom = 0.298069
+offset_left = -6.76403
+offset_top = 0.999813
+offset_right = 156.193
+offset_bottom = -0.412299
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="description" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.268884
+anchor_top = 0.375839
+anchor_right = 0.989147
+anchor_bottom = 0.966629
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+theme = SubResource("Theme_11cx0")
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="icon" type="Sprite2D" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+texture_filter = 1
+position = Vector2(80, 80)
+scale = Vector2(3, 2.819)
+texture = ExtResource("7_hs4nh")
+
+[node name="VSeparator" type="VSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+z_index = 2
+layout_mode = 0
+offset_left = 163.0
+offset_top = -1.0
+offset_right = 167.0
+offset_bottom = 150.0
+theme = ExtResource("1_knir8")
+
+[node name="HSeparator" type="HSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+z_index = 5
+layout_mode = 0
+offset_left = 165.0
+offset_top = 44.0
+offset_right = 646.0
+offset_bottom = 48.0
+theme = ExtResource("1_knir8")
+
+[node name="title2" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738268
+anchor_right = 0.602801
+anchor_bottom = 0.298069
+offset_left = 81.236
+offset_top = 0.999813
+offset_right = 244.193
+offset_bottom = -0.412299
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="UpgradeOne3" type="Button" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.441
+anchor_right = 0.86525
+anchor_bottom = 0.671309
+offset_left = 82.576
+offset_top = 15.232
+offset_right = 90.2319
+offset_bottom = 14.992
+theme = ExtResource("1_knir8")
+script = ExtResource("3_rqk06")
+
+[node name="title" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738268
+anchor_right = 0.602801
+anchor_bottom = 0.298069
+offset_left = -6.76403
+offset_top = 0.999813
+offset_right = 135.193
+offset_bottom = -0.412299
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="description" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.268884
+anchor_top = 0.375839
+anchor_right = 0.989147
+anchor_bottom = 0.966629
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+theme = SubResource("Theme_11cx0")
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="icon" type="Sprite2D" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+texture_filter = 1
+position = Vector2(80, 80)
+scale = Vector2(3, 2.819)
+texture = ExtResource("7_hs4nh")
+
+[node name="VSeparator" type="VSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+z_index = 2
+layout_mode = 0
+offset_left = 163.0
+offset_top = -1.0
+offset_right = 167.0
+offset_bottom = 150.0
+theme = ExtResource("1_knir8")
+
+[node name="HSeparator" type="HSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+z_index = 5
+layout_mode = 0
+offset_left = 165.0
+offset_top = 44.0
+offset_right = 646.0
+offset_bottom = 48.0
+theme = ExtResource("1_knir8")
+
+[node name="title2" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738268
+anchor_right = 0.602801
+anchor_bottom = 0.298069
+offset_left = 81.236
+offset_top = 0.999813
+offset_right = 244.193
+offset_bottom = -0.412299
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="UpgradeOne4" type="Button" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.312
+anchor_top = 0.441
+anchor_right = 0.86525
+anchor_bottom = 0.671309
+offset_left = 82.576
+offset_top = 190.232
+offset_right = 90.2319
+offset_bottom = 189.992
+theme = ExtResource("1_knir8")
+script = ExtResource("3_rqk06")
+buttonIndex = 2
+
+[node name="title" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738267
+anchor_right = 0.925088
+anchor_bottom = 0.295384
+offset_left = -6.76403
+offset_top = 0.999817
+offset_right = -6.68202
+offset_bottom = -0.0121967
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="description" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.268884
+anchor_top = 0.375839
+anchor_right = 0.989147
+anchor_bottom = 0.966629
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+theme = SubResource("Theme_11cx0")
+theme_override_font_sizes/normal_font_size = 25
+metadata/_edit_use_anchors_ = true
+
+[node name="icon" type="Sprite2D" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+texture_filter = 1
+position = Vector2(80, 80)
+scale = Vector2(3, 2.819)
+texture = ExtResource("7_hs4nh")
+
+[node name="VSeparator" type="VSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+z_index = 2
+layout_mode = 0
+offset_left = 163.0
+offset_top = -1.0
+offset_right = 167.0
+offset_bottom = 150.0
+theme = ExtResource("1_knir8")
+
+[node name="HSeparator" type="HSeparator" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+z_index = 5
+layout_mode = 0
+offset_left = 165.0
+offset_top = 44.0
+offset_right = 646.0
+offset_bottom = 48.0
+theme = ExtResource("1_knir8")
+
+[node name="title2" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer/UpgradeOne4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.283355
+anchor_top = 0.0738268
+anchor_right = 0.602801
+anchor_bottom = 0.298069
+offset_left = 81.236
+offset_top = 0.999813
+offset_right = 244.193
+offset_bottom = -0.412299
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+
+[node name="title" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15779
+offset_top = 8.0
+offset_right = 3.0
+offset_bottom = 1.68839
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 75
+bbcode_enabled = true
+text = "[center]Choose an Upgrade!"
+metadata/_edit_use_anchors_ = true
+
+[node name="title2" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.15779
+offset_left = -370.0
+offset_top = 171.0
+offset_right = -367.0
+offset_bottom = 164.688
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Current Stats:"
+metadata/_edit_use_anchors_ = true
+
+[node name="title3" type="RichTextLabel" parent="Camera2D/Control/UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.386
+anchor_right = 0.366
+anchor_bottom = 0.968
+offset_left = 51.176
+offset_top = -0.128005
+offset_right = 51.368
+offset_bottom = -0.264058
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 35
+bbcode_enabled = true
+text = "["
+script = ExtResource("4_uo53n")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control2" type="Control" parent="Camera2D"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI_Layer" type="CanvasLayer" parent="Camera2D/Control2"]
+
+[node name="healthBar" type="ProgressBar" parent="Camera2D/Control2/UI_Layer"]
+unique_name_in_owner = true
+z_index = -60
+anchors_preset = -1
+anchor_left = 0.068
+anchor_top = 0.04
+anchor_right = 0.311
+anchor_bottom = 0.079
+offset_left = -0.336004
+offset_top = 0.0800006
+offset_right = 0.728012
+offset_bottom = -0.192002
+theme_override_constants/outline_size = 14
+theme_override_styles/background = SubResource("StyleBoxFlat_i0s4b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_m83o6")
+show_percentage = false
+script = SubResource("GDScript_tihm4")
+sizeRatio = 2.8
+defaultV = 100
+
+[node name="expBar" type="ProgressBar" parent="Camera2D/Control2/UI_Layer"]
+unique_name_in_owner = true
+z_index = -70
+anchors_preset = -1
+anchor_left = 0.146
+anchor_top = 0.04
+anchor_right = 0.558
+anchor_bottom = 0.102
+offset_left = -90.192
+offset_top = 59.08
+offset_right = -360.816
+offset_bottom = 52.904
+scale = Vector2(0.808299, 0.596506)
+theme_override_constants/outline_size = 14
+theme_override_styles/background = SubResource("StyleBoxFlat_i0s4b")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pj2q2")
+max_value = 15.0
+show_percentage = false
+script = ExtResource("5_m6sjl")
+sizeRatio = 13.6
+
+[node name="LevelText" type="RichTextLabel" parent="Camera2D/Control2/UI_Layer"]
+unique_name_in_owner = true
+z_index = -70
+anchors_preset = -1
+anchor_left = 0.0186042
+anchor_top = 0.127
+anchor_right = 0.0789792
+anchor_bottom = 0.279
+offset_left = -18.432
+offset_top = -0.296003
+offset_right = -17.984
+offset_bottom = 0.207991
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]LV 1"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="Camera2D/Control2/UI_Layer"]
+z_index = -75
+offset_left = 3.0
+offset_top = 75.0
+offset_right = 73.0
+offset_bottom = 115.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cgh2i")
+
+[node name="LevelText2" type="RichTextLabel" parent="Camera2D/Control2/UI_Layer"]
+unique_name_in_owner = true
+z_index = -70
+anchors_preset = -1
+anchor_left = 0.0186042
+anchor_top = 0.127
+anchor_right = 0.0789792
+anchor_bottom = 0.279
+offset_left = -18.432
+offset_top = -56.296
+offset_right = -17.984
+offset_bottom = -55.792
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 27
+bbcode_enabled = true
+text = "[center]HP:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="Camera2D/Control2/UI_Layer"]
+z_index = -75
+offset_left = 3.0
+offset_top = 19.0
+offset_right = 73.0
+offset_bottom = 59.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6euc4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D/Control2"]
+process_priority = -5
+
+[node name="Panel3" type="Panel" parent="Camera2D/Control2/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.807235
+anchor_right = 0.105639
+anchor_bottom = 0.94
+offset_left = -0.104001
+offset_top = -0.0880113
+offset_right = 0.303997
+offset_bottom = -0.120037
+theme = ExtResource("1_knir8")
+script = ExtResource("9_asxkn")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel3"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 59.0
+theme = ExtResource("1_knir8")
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel3"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 60.9998
+offset_right = 136.0
+offset_bottom = 113.0
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Attack"
+
+[node name="Panel4" type="Panel" parent="Camera2D/Control2/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.807235
+anchor_right = 0.105639
+anchor_bottom = 0.94
+offset_left = 104.896
+offset_top = -0.0880113
+offset_right = 105.304
+offset_bottom = -0.120037
+theme = ExtResource("1_knir8")
+script = ExtResource("9_asxkn")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel4"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 59.0
+theme = ExtResource("1_knir8")
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel4"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 60.9998
+offset_right = 136.0
+offset_bottom = 113.0
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Attack"
+
+[node name="Panel5" type="Panel" parent="Camera2D/Control2/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.807235
+anchor_right = 0.105639
+anchor_bottom = 0.94
+offset_left = 209.896
+offset_top = -1.08828
+offset_right = 210.304
+offset_bottom = -1.1203
+theme = ExtResource("1_knir8")
+script = ExtResource("9_asxkn")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel5"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 59.0
+theme = ExtResource("1_knir8")
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel5"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 60.9998
+offset_right = 136.0
+offset_bottom = 113.0
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Attack"
+
+[node name="Panel6" type="Panel" parent="Camera2D/Control2/CanvasLayer"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.027
+anchor_top = 0.807235
+anchor_right = 0.105639
+anchor_bottom = 0.94
+offset_left = 315.896
+offset_top = -0.0880375
+offset_right = 316.304
+offset_bottom = -0.120059
+theme = ExtResource("1_knir8")
+script = ExtResource("9_asxkn")
+index = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel6"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 7.0
+offset_right = 90.0
+offset_bottom = 59.0
+theme = ExtResource("1_knir8")
+bbcode_enabled = true
+text = "[center]X"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Control2/CanvasLayer/Panel6"]
+layout_mode = 0
+offset_left = -41.0
+offset_top = 60.9998
+offset_right = 136.0
+offset_bottom = 113.0
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/normal_font_size = 25
+bbcode_enabled = true
+text = "[center]Attack"
+
+[node name="Panel" type="Panel" parent="Camera2D"]
+z_index = -1000
+offset_left = -1345.0
+offset_top = -752.0
+offset_right = 1351.0
+offset_bottom = 763.0
+
+[node name="Panel3" type="Panel" parent="Camera2D"]
+unique_name_in_owner = true
+z_index = 5
+anchors_preset = -1
+anchor_top = -0.00154321
+anchor_right = 1.0
+anchor_bottom = 0.969457
+offset_left = -6.0
+offset_top = -7.0
+offset_bottom = 23.792
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6a355")
+metadata/_edit_use_anchors_ = true
+
+[node name="grindtime" type="Panel" parent="Camera2D/Panel3"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 0
+offset_left = -488.0
+offset_top = -648.0
+offset_right = 504.0
+offset_bottom = 553.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_gy6x8")
+
+[node name="Menu" type="Control" parent="Camera2D/Panel3/grindtime"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = -63.0
+offset_top = -359.0
+offset_right = 1092.0
+offset_bottom = 1167.0
+
+[node name="Button2" type="Button" parent="Camera2D/Panel3/grindtime/Menu"]
+layout_mode = 2
+anchor_left = 0.221934
+anchor_top = 0.413636
+anchor_right = 0.674525
+anchor_bottom = 0.484389
+offset_left = 0.221942
+offset_top = 0.413661
+offset_right = 104.122
+offset_bottom = 27.5835
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/font_size = 80
+text = "RESUME"
+script = ExtResource("27_2fudv")
+resumeStart = "resume"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Camera2D/Panel3/grindtime/Menu"]
+layout_mode = 2
+anchor_left = 0.221934
+anchor_top = 0.59697
+anchor_right = 0.709931
+anchor_bottom = 0.666207
+offset_left = 0.221942
+offset_top = 0.597022
+offset_right = 62.1218
+offset_bottom = 27.8275
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/font_size = 80
+text = "OPTIONS"
+script = ExtResource("27_uprcn")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="Camera2D/Panel3/grindtime/Menu"]
+process_priority = 2
+layout_mode = 2
+anchor_left = 0.222319
+anchor_top = 0.777341
+anchor_right = 0.764042
+anchor_bottom = 0.87216
+offset_left = 0.221942
+offset_top = 0.777329
+offset_right = -0.468819
+offset_bottom = 0.0837113
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_knir8")
+theme_override_font_sizes/font_size = 80
+text = "EXIT GAME"
+script = ExtResource("28_v613g")
+metadata/_edit_use_anchors_ = true
+
+[node name="Control3" type="Control" parent="Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 800.0
+offset_bottom = 432.0
+
+[node name="Panel2" type="Panel" parent="Camera2D/Control3"]
+unique_name_in_owner = true
+process_mode = 2
+process_priority = 100
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.237
+anchor_top = 0.045
+anchor_right = 0.726
+anchor_bottom = 0.95
+offset_left = -698.6
+offset_top = -589.44
+offset_right = -520.8
+offset_bottom = -396.4
+scale = Vector2(1.8, 1.8)
+mouse_filter = 2
+theme = ExtResource("1_knir8")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 130.0
+offset_right = 241.0
+offset_bottom = 156.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "(Doesn't matter if fullscreen)"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 105.0
+offset_right = 241.0
+offset_bottom = 131.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Window Resolution:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 3.0
+offset_right = 415.0
+offset_bottom = 55.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Settings"
+
+[node name="OptionList" parent="Camera2D/Control3/Panel2" instance=ExtResource("11_gv4b0")]
+z_index = 30
+layout_mode = 0
+offset_left = 206.0
+offset_top = 102.0
+offset_right = 436.0
+offset_bottom = 137.0
+theme = ExtResource("1_knir8")
+setting = ExtResource("12_ljwgw")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="Btn" parent="Camera2D/Control3/Panel2/OptionList" index="0"]
+item_count = 5
+popup/item_0/text = "3840x2160 (4k)"
+popup/item_0/id = 1
+popup/item_1/text = "2560x1440"
+popup/item_1/id = 2
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 0
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "854x480"
+popup/item_4/id = 4
+
+[node name="Checkbox" parent="Camera2D/Control3/Panel2" instance=ExtResource("13_p5p0e")]
+layout_mode = 2
+offset_left = 204.0
+offset_top = 171.0
+offset_right = 225.0
+offset_bottom = 193.0
+setting = ExtResource("14_gvkjq")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 168.0
+offset_right = 242.0
+offset_bottom = 194.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Fullscreen On/Off:"
+
+[node name="Slider" parent="Camera2D/Control3/Panel2" instance=ExtResource("15_h0tfa")]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 261.0
+offset_right = 352.0
+offset_bottom = 300.0
+setting = ExtResource("16_y8i54")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="Slider" parent="Camera2D/Control3/Panel2/Slider" index="0"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+theme_override_styles/slider = SubResource("StyleBoxLine_wyoit")
+tick_count = 5
+ticks_on_borders = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 267.0
+offset_right = 246.0
+offset_bottom = 316.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Audio Volume:"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 248.0
+offset_right = 384.0
+offset_bottom = 274.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "0 (Min)             50             100 (Max)"
+
+[node name="Checkbox2" parent="Camera2D/Control3/Panel2" instance=ExtResource("13_p5p0e")]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 315.0
+offset_right = 163.0
+offset_bottom = 338.0
+setting = ExtResource("17_wdiak")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 313.0
+offset_right = 246.0
+offset_bottom = 362.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Audio Muted:"
+
+[node name="InputConfirmWindow" parent="Camera2D/Control3/Panel2" instance=ExtResource("18_wsfwm")]
+
+[node name="InputBtn" parent="Camera2D/Control3/Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("19_uop4l")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 392.0
+offset_right = -323.066
+offset_bottom = -162.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("20_pnbt6")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 385.0
+offset_right = 292.0
+offset_bottom = 434.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Attack &
+Select:"
+fit_content = true
+scroll_active = false
+
+[node name="InputBtn2" parent="Camera2D/Control3/Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("19_uop4l")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 454.0
+offset_right = -323.066
+offset_bottom = -100.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("21_46qjb")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 455.0
+offset_right = 292.0
+offset_bottom = 504.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 1:"
+
+[node name="InputBtn3" parent="Camera2D/Control3/Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("19_uop4l")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 518.0
+offset_right = -323.066
+offset_bottom = -36.1398
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("22_xc4o5")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 519.0
+offset_right = 292.0
+offset_bottom = 568.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 2:"
+
+[node name="InputBtn4" parent="Camera2D/Control3/Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("19_uop4l")]
+layout_mode = 1
+offset_left = 355.0
+offset_top = 422.0
+offset_right = -108.066
+offset_bottom = -132.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("23_6s1sv")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 423.0
+offset_right = 501.0
+offset_bottom = 475.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 3:"
+fit_content = true
+
+[node name="InputBtn5" parent="Camera2D/Control3/Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("19_uop4l")]
+layout_mode = 1
+offset_left = 355.0
+offset_top = 484.0
+offset_right = -108.066
+offset_bottom = -70.1398
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("24_r7my2")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 485.0
+offset_right = 507.0
+offset_bottom = 534.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Pause:"
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 342.0
+offset_right = 478.0
+offset_bottom = 391.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "INPUT"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 214.0
+offset_right = 477.0
+offset_bottom = 263.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "AUDIO"
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 59.0
+offset_right = 478.0
+offset_bottom = 108.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "VIDEO"
+
+[node name="Button" type="Button" parent="Camera2D/Control3/Panel2"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 24.0
+offset_right = 536.0
+offset_bottom = 74.0
+text = "RETURN TO MENU"
+script = SubResource("GDScript_qcu5c")
+
+[node name="Control4" parent="Camera2D" instance=ExtResource("29_72rsd")]
+unique_name_in_owner = true
+visible = false
+offset_left = -1337.0
+offset_top = -773.0
+offset_right = -1337.0
+offset_bottom = -773.0
+scale = Vector2(2.26438, 2.21864)
+
+[node name="Button2" parent="Camera2D/Control4/Panel" index="0"]
+script = SubResource("GDScript_uhn3f")
+
+[node name="RichTextLabel4" parent="Camera2D/Control4/Panel" index="2"]
+offset_left = 281.313
+offset_top = 78.8771
+offset_right = 890.313
+offset_bottom = 318.877
+
+[node name="Control5" parent="Camera2D" instance=ExtResource("31_026yw")]
+unique_name_in_owner = true
+visible = false
+offset_left = -1273.0
+offset_top = -745.0
+offset_right = -1273.0
+offset_bottom = -745.0
+scale = Vector2(2.15549, 2.14475)
+
+[node name="Button2" parent="Camera2D/Control5/Panel" index="0"]
+script = SubResource("GDScript_uhn3f")
+
+[node name="RichTextLabel5" parent="Camera2D/Control5/Panel" index="3"]
+layout_mode = 0
+offset_left = 250.987
+offset_top = 191.164
+offset_right = 951.987
+offset_bottom = 431.164
+
+[node name="Levels" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Room" parent="." instance=ExtResource("11_o42t2")]
+position = Vector2(-55, -320)
+
+[node name="RichTextLabel" parent="Room" index="6"]
+mouse_filter = 2
+
+[node name="RichTextLabel3" parent="Room" index="8"]
+mouse_filter = 2
+
+[connection signal="body_entered" from="CharacterBody2D/Marker2D/Area2D" to="CharacterBody2D/Marker2D/Area2D" method="_on_body_entered" flags=18]
+
+[editable path="Camera2D/Control3/Panel2/OptionList"]
+[editable path="Camera2D/Control3/Panel2/Checkbox"]
+[editable path="Camera2D/Control3/Panel2/Slider"]
+[editable path="Camera2D/Control3/Panel2/Checkbox2"]
+[editable path="Camera2D/Control3/Panel2/InputBtn"]
+[editable path="Camera2D/Control3/Panel2/InputBtn2"]
+[editable path="Camera2D/Control3/Panel2/InputBtn3"]
+[editable path="Camera2D/Control3/Panel2/InputBtn4"]
+[editable path="Camera2D/Control3/Panel2/InputBtn5"]
+[editable path="Camera2D/Control4"]
+[editable path="Camera2D/Control5"]
+[editable path="Room"]

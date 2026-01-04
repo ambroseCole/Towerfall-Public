@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg3dbt1gi1req"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_gy2u3"]
+[ext_resource type="Texture2D" uid="uid://bn5urih1ia1fr" path="res://assets/character_roundPurple.png" id="2_ecf3o"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_gy2u3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_ecf3o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(1, 0.99)
+polygon = PackedVector2Array(-40, -32, -40, -40, -32, -48, -16, -64, 8, -64, 16, -64, 32, -48, 40, -40, 40, -32, 40, 40, 24, 56, 8, 64, -8, 64, -24, 56, -40, 32)
+
+[node name="GridSnapper" type="Marker2D" parent="."]
+
+[node name="PlayerCamera" type="Camera2D" parent="GridSnapper"]
+zoom = Vector2(0.5, 0.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.0
+drag_top_margin = 0.0
+drag_right_margin = 0.0
+drag_bottom_margin = 0.0

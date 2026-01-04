@@ -1,0 +1,147 @@
+[gd_scene load_steps=17 format=3 uid="uid://ddh2p7ove7tql"]
+
+[ext_resource type="Script" path="res://Scripts/Characters & Enemeies/enemyController.gd" id="1_eyt36"]
+[ext_resource type="Texture2D" uid="uid://db0gs8myj11q4" path="res://Resources/slime-Sheet[1]-Sheet.png" id="2_rn4pa"]
+[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://Resources/themes/C&C Red Alert [INET].ttf" id="3_mlh33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou622"]
+size = Vector2(121.033, 97.3972)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88ner"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(160, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57xoc"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(192, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6n4p"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(224, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ia5f7"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(256, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2v8d"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(288, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3meg"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(0, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uik28"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(32, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iag6j"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(64, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cai3g"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(96, 0, 32, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poim2"]
+atlas = ExtResource("2_rn4pa")
+region = Rect2(128, 0, 32, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_si6go"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88ner")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57xoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6n4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ia5f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2v8d")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3meg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uik28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iag6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cai3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poim2")
+}],
+"loop": true,
+"name": &"move",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkcwn"]
+size = Vector2(218.13, 187.503)
+
+[node name="EnemyOne" type="CharacterBody2D" groups=["enemies"]]
+modulate = Color(1, 0.494118, 0, 1)
+position = Vector2(913, 480)
+script = ExtResource("1_eyt36")
+speed = 125
+health = 7
+expValue = 50
+damage = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.313, -14.0505)
+scale = Vector2(1.04496, 0.944586)
+shape = SubResource("RectangleShape2D_ou622")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.557
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(11.313, -19.0506)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_si6go")
+animation = &"attack"
+autoplay = "default"
+frame_progress = 0.635116
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(21.2207, -2.69983)
+scale = Vector2(1.09194, 0.892243)
+shape = SubResource("RectangleShape2D_tkcwn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -56.0
+offset_top = -108.0
+offset_right = 113.0
+offset_bottom = -60.0
+theme_override_fonts/normal_font = ExtResource("3_mlh33")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]Parried!"

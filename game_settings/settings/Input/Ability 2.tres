@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="ggsInputSetting" load_steps=4 format=3 uid="uid://c64e0ex8w8cam"]
+
+[ext_resource type="Script" path="res://game_settings/templates/input.gd" id="1_m6ws1"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_4d36u"]
+device = -1
+physical_keycode = 67
+unicode = 99
+
+[sub_resource type="InputEventKey" id="InputEventKey_3hp70"]
+device = -1
+physical_keycode = 67
+unicode = 99
+
+[resource]
+resource_name = "Ability 2"
+script = ExtResource("1_m6ws1")
+action = "ability 2"
+event_index = 0
+type = 1
+default_as_event = SubResource("InputEventKey_3hp70")
+current_as_event = SubResource("InputEventKey_4d36u")
+current = [1, 67]
+default = [1, 67]
+name = "Ability 2"
+category = "Input"
+value_type = 28
+value_hint = 0
+value_hint_string = ""

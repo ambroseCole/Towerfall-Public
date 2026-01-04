@@ -1,0 +1,435 @@
+[gd_scene load_steps=22 format=3 uid="uid://dicxywpsf4c3p"]
+
+[ext_resource type="Theme" uid="uid://c7sdrp3ltdq24" path="res://Resources/themes/pixelart.theme" id="1_d4bv5"]
+[ext_resource type="Script" path="res://Scenes/startResume.gd" id="2_5cgug"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/optionsButton.gd" id="2_laoiy"]
+[ext_resource type="Script" path="res://Resources/themes/exitButton.gd" id="3_82mcj"]
+[ext_resource type="PackedScene" uid="uid://b7m6l0lvojrsj" path="res://game_settings/components/option_list/option_list.tscn" id="4_1h2vb"]
+[ext_resource type="Resource" uid="uid://bpt2fv1ih7800" path="res://game_settings/settings/Video/Resolution.tres" id="5_ahu1r"]
+[ext_resource type="FontFile" uid="uid://bpid28mjg4jgt" path="res://Resources/themes/C&C Red Alert [INET].ttf" id="5_sne3d"]
+[ext_resource type="PackedScene" uid="uid://bhkyf3l4ee800" path="res://game_settings/components/checkbox/checkbox.tscn" id="6_p8uet"]
+[ext_resource type="Resource" uid="uid://d3llctnfjcgxp" path="res://game_settings/settings/Video/Fullscreen.tres" id="7_7ceh0"]
+[ext_resource type="PackedScene" uid="uid://ds06mwhee8ygm" path="res://game_settings/components/slider/slider.tscn" id="8_sjngp"]
+[ext_resource type="Resource" uid="uid://b32teqsgukyjv" path="res://game_settings/settings/Audio/Volume.tres" id="9_68ywf"]
+[ext_resource type="Resource" uid="uid://mqlkedmdvbef" path="res://game_settings/settings/Audio/Audio Muted.tres" id="10_8sf64"]
+[ext_resource type="PackedScene" uid="uid://b1btmq8y3gexs" path="res://game_settings/components/_misc_components/input_confirm_window/input_confirm_window.tscn" id="11_gqyt0"]
+[ext_resource type="PackedScene" uid="uid://dm1av7skxvp1j" path="res://game_settings/components/input_btn/input_btn.tscn" id="12_l6hrp"]
+[ext_resource type="Resource" uid="uid://c8qlmit8dfv4e" path="res://game_settings/settings/Input/Attack.tres" id="13_aitjn"]
+[ext_resource type="Resource" uid="uid://cfm0ncsjxveah" path="res://game_settings/settings/Input/Ability 1.tres" id="14_jy5y1"]
+[ext_resource type="Resource" uid="uid://c64e0ex8w8cam" path="res://game_settings/settings/Input/Ability 2.tres" id="15_oh0re"]
+[ext_resource type="Resource" uid="uid://bupud8t2xm5hj" path="res://game_settings/settings/Input/Special Ability.tres" id="16_povvb"]
+[ext_resource type="Resource" uid="uid://brcjgxcc74cjp" path="res://game_settings/settings/Input/Pause.tres" id="17_br5i6"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/returnButton.gd" id="18_l38k8"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_jhlbp"]
+color = Color(0.831373, 0.831373, 0.831373, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+z_index = -4
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.00154321
+anchor_right = 1.0
+anchor_bottom = 0.969457
+offset_left = -6.0
+offset_top = -7.0
+offset_bottom = 23.792
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="Control" parent="Panel"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1158.0
+offset_bottom = 658.0
+
+[node name="Button2" type="Button" parent="Panel/Menu"]
+layout_mode = 2
+anchor_left = 0.221934
+anchor_top = 0.415154
+anchor_right = 0.674525
+anchor_bottom = 0.485907
+offset_left = 0.221942
+offset_top = 0.413661
+offset_right = 104.122
+offset_bottom = 27.5835
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4bv5")
+theme_override_font_sizes/font_size = 25
+text = "START GAME"
+script = ExtResource("2_5cgug")
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="Panel/Menu"]
+layout_mode = 2
+anchor_left = 0.221934
+anchor_top = 0.59697
+anchor_right = 0.709931
+anchor_bottom = 0.666207
+offset_left = 0.221942
+offset_top = 0.597022
+offset_right = 62.1218
+offset_bottom = 27.8275
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4bv5")
+theme_override_font_sizes/font_size = 25
+text = "OPTIONS"
+script = ExtResource("2_laoiy")
+bro = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Button4" type="Button" parent="Panel/Menu"]
+layout_mode = 2
+anchor_left = 0.221934
+anchor_top = 0.777273
+anchor_right = 0.764
+anchor_bottom = 0.896
+offset_left = 0.221942
+offset_top = 0.777329
+offset_right = -0.468819
+offset_bottom = 0.0837113
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_d4bv5")
+theme_override_font_sizes/font_size = 25
+text = "EXIT"
+script = ExtResource("3_82mcj")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+offset_left = -74.0
+offset_top = 57.0
+offset_right = 1275.0
+offset_bottom = 427.0
+scale = Vector2(0.974723, 1.10197)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_sne3d")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[center]TOWERFALL"
+
+[node name="Panel2" type="Panel" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.237
+anchor_top = 0.045
+anchor_right = 0.726
+anchor_bottom = 0.95
+offset_left = 12.976
+offset_top = -7.16
+offset_right = 12.714
+offset_bottom = -7.4602
+mouse_filter = 2
+theme = ExtResource("1_d4bv5")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 130.0
+offset_right = 241.0
+offset_bottom = 156.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "(Doesn't matter if fullscreen)"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel2"]
+layout_mode = 2
+offset_left = 11.0
+offset_top = 105.0
+offset_right = 241.0
+offset_bottom = 131.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Window Resolution:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 203.0
+offset_top = 3.0
+offset_right = 415.0
+offset_bottom = 55.0
+theme_override_font_sizes/normal_font_size = 40
+text = "Settings"
+
+[node name="OptionList" parent="Panel2" instance=ExtResource("4_1h2vb")]
+z_index = 30
+layout_mode = 0
+offset_left = 206.0
+offset_top = 102.0
+offset_right = 436.0
+offset_bottom = 137.0
+theme = ExtResource("1_d4bv5")
+setting = ExtResource("5_ahu1r")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="Btn" parent="Panel2/OptionList" index="0"]
+item_count = 5
+popup/item_0/text = "3840x2160 (4k)"
+popup/item_0/id = 1
+popup/item_1/text = "2560x1440"
+popup/item_1/id = 2
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 0
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "854x480"
+popup/item_4/id = 4
+
+[node name="Checkbox" parent="Panel2" instance=ExtResource("6_p8uet")]
+layout_mode = 2
+offset_left = 204.0
+offset_top = 171.0
+offset_right = 225.0
+offset_bottom = 193.0
+setting = ExtResource("7_7ceh0")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 168.0
+offset_right = 242.0
+offset_bottom = 194.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Fullscreen On/Off:"
+
+[node name="Slider" parent="Panel2" instance=ExtResource("8_sjngp")]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 261.0
+offset_right = 352.0
+offset_bottom = 300.0
+setting = ExtResource("9_68ywf")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="Slider" parent="Panel2/Slider" index="0"]
+custom_minimum_size = Vector2(200, 2.08165e-12)
+theme_override_styles/slider = SubResource("StyleBoxLine_jhlbp")
+tick_count = 5
+ticks_on_borders = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 267.0
+offset_right = 246.0
+offset_bottom = 316.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Audio Volume:"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 248.0
+offset_right = 384.0
+offset_bottom = 274.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 15
+text = "0 (Min)             50             100 (Max)"
+
+[node name="Checkbox2" parent="Panel2" instance=ExtResource("6_p8uet")]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 315.0
+offset_right = 163.0
+offset_bottom = 338.0
+setting = ExtResource("10_8sf64")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 313.0
+offset_right = 246.0
+offset_bottom = 362.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Audio Muted:"
+
+[node name="InputConfirmWindow" parent="Panel2" instance=ExtResource("11_gqyt0")]
+
+[node name="InputBtn" parent="Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("12_l6hrp")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 392.0
+offset_right = -323.066
+offset_bottom = -162.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("13_aitjn")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 385.0
+offset_right = 292.0
+offset_bottom = 434.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Attack &
+Select:"
+fit_content = true
+scroll_active = false
+
+[node name="InputBtn2" parent="Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("12_l6hrp")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 454.0
+offset_right = -323.066
+offset_bottom = -100.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("14_jy5y1")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 455.0
+offset_right = 292.0
+offset_bottom = 504.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 1:"
+
+[node name="InputBtn3" parent="Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("12_l6hrp")]
+layout_mode = 1
+offset_left = 140.0
+offset_top = 518.0
+offset_right = -323.066
+offset_bottom = -36.1398
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("15_oh0re")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 519.0
+offset_right = 292.0
+offset_bottom = 568.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 2:"
+
+[node name="InputBtn4" parent="Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("12_l6hrp")]
+layout_mode = 1
+offset_left = 355.0
+offset_top = 422.0
+offset_right = -108.066
+offset_bottom = -132.14
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("16_povvb")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 423.0
+offset_right = 501.0
+offset_bottom = 475.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Ability 3:"
+fit_content = true
+
+[node name="InputBtn5" parent="Panel2" node_paths=PackedStringArray("ICW") instance=ExtResource("12_l6hrp")]
+layout_mode = 1
+offset_left = 355.0
+offset_top = 484.0
+offset_right = -108.066
+offset_bottom = -70.1398
+ICW = NodePath("../InputConfirmWindow")
+accept_mouse = true
+setting = ExtResource("17_br5i6")
+apply_on_change = true
+grab_focus_on_mouse_over = true
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 485.0
+offset_right = 507.0
+offset_bottom = 534.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "Pause:"
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 342.0
+offset_right = 478.0
+offset_bottom = 391.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "INPUT"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 214.0
+offset_right = 477.0
+offset_bottom = 263.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "AUDIO"
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="Panel2"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 59.0
+offset_right = 478.0
+offset_bottom = 108.0
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "VIDEO"
+
+[node name="Button" type="Button" parent="Panel2"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 24.0
+offset_right = 536.0
+offset_bottom = 74.0
+text = "RETURN TO MENU"
+script = ExtResource("18_l38k8")
+
+[editable path="Panel2/OptionList"]
+[editable path="Panel2/Checkbox"]
+[editable path="Panel2/Slider"]
+[editable path="Panel2/Checkbox2"]
+[editable path="Panel2/InputBtn"]
+[editable path="Panel2/InputBtn2"]
+[editable path="Panel2/InputBtn3"]
+[editable path="Panel2/InputBtn4"]
+[editable path="Panel2/InputBtn5"]

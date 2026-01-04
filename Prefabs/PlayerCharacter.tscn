@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccbpymj2c57jt"]
+
+[ext_resource type="Script" path="res://Scripts/Characters & Enemeies/characterControl.gd" id="1_ill60"]
+[ext_resource type="Texture2D" uid="uid://b06ujsr28lehw" path="res://Resources/icon.svg" id="2_rbxdj"]
+[ext_resource type="Texture2D" uid="uid://dqqp0ji38lc5s" path="res://Resources/Anims/Character Slash.png" id="3_2korm"]
+[ext_resource type="Script" path="res://Scripts/swordScript.gd" id="4_rhs4x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwthk"]
+size = Vector2(129.25, 133)
+
+[sub_resource type="Animation" id="Animation_72xtr"]
+resource_name = "Crescent"
+length = 0.22
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.16, 0.19),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_ulcmt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_l3ucg"]
+resource_name = "Slash"
+length = 0.22
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5durh"]
+_data = {
+"Crescent": SubResource("Animation_72xtr"),
+"RESET": SubResource("Animation_ulcmt"),
+"Slash": SubResource("Animation_l3ucg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xvb7"]
+size = Vector2(84.5522, 64.4442)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(640, 270)
+script = ExtResource("1_ill60")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("2_rbxdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_uwthk")
+one_way_collision_margin = 0.0
+
+[node name="slot1" type="Timer" parent="."]
+
+[node name="slot2" type="Timer" parent="."]
+
+[node name="SlashAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5durh")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+z_index = 5
+position = Vector2(-166, -23)
+scale = Vector2(3.01557, 3.22918)
+texture = ExtResource("3_2korm")
+hframes = 9
+
+[node name="Area2D" type="Area2D" parent="Marker2D"]
+position = Vector2(-92, -6)
+scale = Vector2(2.87479, 2.10421)
+disable_mode = 2
+script = ExtResource("4_rhs4x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
+position = Vector2(-27.1324, 2.37618)
+scale = Vector2(0.699994, 1)
+shape = SubResource("RectangleShape2D_7xvb7")
+disabled = true
+
+[node name="parry2D" type="Area2D" parent="Marker2D"]
+position = Vector2(-92, -6)
+scale = Vector2(2.87479, 2.10421)
+disable_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/parry2D"]
+position = Vector2(-27.1324, 2.37618)
+scale = Vector2(0.699994, 1)
+shape = SubResource("RectangleShape2D_7xvb7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Marker2D"]
+position = Vector2(-290, 3)
+amount = 17
+emission_shape = 3
+emission_rect_extents = Vector2(55, 1)
+direction = Vector2(-1, 2.08165e-12)
+spread = 95.36
+gravity = Vector2(2.08165e-12, 2.08165e-12)
+initial_velocity_min = 120.0
+initial_velocity_max = 276.3
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+
+[node name="Melee" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Marker2D/Area2D" to="Marker2D/Area2D" method="_on_body_entered"]

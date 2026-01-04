@@ -1,0 +1,43 @@
+[style name="Default"]
+Are you ready to climb the tower? (Use arrow keys to select and x to confirm)
+- No
+	[end_timeline]
+- Yes
+	label start
+	As you walk up to the door, you feel the urge to pray for assistance in your upcoming battle. Which god do you pray to?
+	- Tsukuyomi
+		Tsukuyomi\: God of the Moon\
+		Passive Ability\: Moon's Blessing (Slowly regain lost health)\
+		Do you pray to Tsukuyomi?
+		- Yes
+			[signal arg="moon"]
+		- On second thought...
+			jump timeline/start
+	- Kagutsuchi
+		Kagutsuchi\: God of Fire\
+		Passive Ability\: Blazing Edge (Attacks burn enemies)\
+		Do you pray to Kagutsuchi?
+		- Yes
+			[signal arg="fire"]
+		- On second thought...
+			jump timeline/start
+	- Takemikazuchi
+		Takemikazuchi\: God of Thunder\
+		Passive Ability\: Lightning Escape (Gain the ability to dash)\
+		Do you pray to Takemikazuchi?
+		- Yes
+			[signal arg="thunder"]
+		- On second thought...
+			jump timtimeline/start
+	- Hachiman
+		Hachiman\: God of War (Warning\: Challening)\
+		Passive Ability\: Thirst for Glory (More enemies will spawn, but attack damage is greatly increased)\
+		Do you pray to Hachiman?
+		- Yes
+			[signal arg="war"]
+		- On second thought...
+			jump timtimeline/start
+	You feel a strange power coursing through your veins. You are ready.\
+	Press X to continue
+	[wait time="0.1"]
+	[end_timeline]

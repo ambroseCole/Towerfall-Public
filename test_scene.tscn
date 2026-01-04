@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cajm7fbxpepnq"]
+
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/giveUpgrade.gd" id="1_70q4o"]
+[ext_resource type="Texture2D" uid="uid://bke2a7c3lgttv" path="res://Resources/themes/pixel-panel.png" id="2_qyebh"]
+[ext_resource type="Script" path="res://Scripts/UI and Handlers/shrine.gd" id="3_e1ml3"]
+[ext_resource type="PackedScene" uid="uid://bp1mj23l5qgwb" path="res://enemy_one.tscn" id="4_j8di8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kmkgf"]
+size = Vector2(31.5576, 31.5176)
+
+[node name="TestScene" type="Node2D"]
+position = Vector2(551.687, 80.0505)
+
+[node name="TestButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.246
+anchor_bottom = 0.094
+offset_left = 581.0
+offset_top = -213.0
+offset_right = 709.0
+offset_bottom = -151.0
+text = "Get an upgrade"
+script = ExtResource("1_70q4o")
+
+[node name="Shrine" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(992, 158)
+scale = Vector2(6.78125, 6.21875)
+texture = ExtResource("2_qyebh")
+
+[node name="Area2D" type="Area2D" parent="Shrine"]
+script = ExtResource("3_e1ml3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shrine/Area2D"]
+position = Vector2(-0.294926, -0.321608)
+shape = SubResource("RectangleShape2D_kmkgf")
+
+[node name="EnemyOne" parent="." instance=ExtResource("4_j8di8")]
+
+[connection signal="body_entered" from="Shrine/Area2D" to="Shrine/Area2D" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="Shrine/Area2D" to="Shrine/Area2D" method="_on_body_exited" flags=18]

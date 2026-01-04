@@ -1,0 +1,202 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpl3q25ngaenr"]
+
+[ext_resource type="Script" path="res://Scripts/characterControl.gd" id="1_66jsh"]
+[ext_resource type="Texture2D" uid="uid://c6nhtmxkeehrc" path="res://icon.svg" id="1_ak5fh"]
+[ext_resource type="Script" path="res://Scripts/upgradeButton.gd" id="3_gm2in"]
+[ext_resource type="Script" path="res://Scripts/giveUpgrade.gd" id="4_a83cq"]
+[ext_resource type="Script" path="res://enemyController.gd" id="5_k72ve"]
+[ext_resource type="Texture2D" uid="uid://dh3kywyxhnvsa" path="res://addons/game-sprites-master/characters/shadow.svg" id="6_tnvgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qnlme"]
+size = Vector2(129.25, 133)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xkarh"]
+bg_color = Color(0.541176, 0.541176, 0.541176, 1)
+
+[sub_resource type="Theme" id="Theme_11cx0"]
+Button/styles/normal = SubResource("StyleBoxFlat_xkarh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou622"]
+size = Vector2(107, 164)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(640, 270)
+script = ExtResource("1_66jsh")
+
+[node name="Character" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(0, -1)
+texture = ExtResource("1_ak5fh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_qnlme")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(569, 324)
+offset = Vector2(9, 2.08165e-12)
+
+[node name="UpgradeButtonLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="UpgradeOne" type="Button" parent="UpgradeButtonLayer"]
+anchors_preset = -1
+anchor_left = 0.0564236
+anchor_top = 0.395062
+anchor_right = 0.936632
+anchor_bottom = 0.574074
+offset_right = 3.05176e-05
+offset_bottom = -1.00136e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+script = ExtResource("3_gm2in")
+
+[node name="title" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeOne"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 0.263
+anchor_bottom = 0.957
+offset_left = 0.235983
+offset_top = 0.999817
+offset_right = 0.317987
+offset_bottom = -0.0121969
+mouse_filter = 2
+
+[node name="description" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeOne"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_right = 1.0
+anchor_bottom = 0.983
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+theme = SubResource("Theme_11cx0")
+
+[node name="icon" type="Sprite2D" parent="UpgradeButtonLayer/UpgradeOne"]
+position = Vector2(66, 56.9998)
+scale = Vector2(0.898438, 0.84375)
+texture = ExtResource("1_ak5fh")
+
+[node name="UpgradeTwo" type="Button" parent="UpgradeButtonLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = -254.0
+offset_right = 505.0
+offset_bottom = -138.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_gm2in")
+buttonIndex = 0
+
+[node name="title" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeTwo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 0.263
+anchor_bottom = 0.957
+offset_left = 0.235983
+offset_top = 0.999817
+offset_right = 0.317987
+offset_bottom = -0.0121969
+mouse_filter = 2
+
+[node name="description" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeTwo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_right = 1.0
+anchor_bottom = 0.983
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+
+[node name="icon" type="Sprite2D" parent="UpgradeButtonLayer/UpgradeTwo"]
+position = Vector2(66, 56.9998)
+scale = Vector2(0.898438, 0.84375)
+texture = ExtResource("1_ak5fh")
+
+[node name="UpgradeThree" type="Button" parent="UpgradeButtonLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -509.0
+offset_top = 141.0
+offset_right = 505.0
+offset_bottom = 257.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_gm2in")
+buttonIndex = 2
+
+[node name="title" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeThree"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.126
+anchor_right = 0.263
+anchor_bottom = 0.957
+offset_left = 0.235983
+offset_top = 0.999817
+offset_right = 0.317987
+offset_bottom = -0.0121969
+mouse_filter = 2
+
+[node name="description" type="RichTextLabel" parent="UpgradeButtonLayer/UpgradeThree"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_right = 1.0
+anchor_bottom = 0.983
+offset_left = -0.430035
+offset_top = 4.0
+offset_right = -4.00012
+offset_bottom = -0.0277347
+mouse_filter = 2
+
+[node name="icon" type="Sprite2D" parent="UpgradeButtonLayer/UpgradeThree"]
+position = Vector2(66, 56.9998)
+scale = Vector2(0.898438, 0.84375)
+texture = ExtResource("1_ak5fh")
+
+[node name="TestButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_right = 0.246
+anchor_bottom = 0.094
+offset_left = 22.0
+offset_top = 9.0
+offset_right = 150.0
+offset_bottom = 71.0
+text = "Get an upgrade"
+script = ExtResource("4_a83cq")
+
+[node name="EnemyOne" type="CharacterBody2D" parent="."]
+position = Vector2(913, 480)
+script = ExtResource("5_k72ve")
+
+[node name="Character" type="Sprite2D" parent="EnemyOne"]
+position = Vector2(3.00006, 1)
+scale = Vector2(1.57246, 3.26)
+texture = ExtResource("6_tnvgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyOne"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_ou622")
+
+[node name="Timer" type="Timer" parent="EnemyOne"]
+wait_time = 1.557
